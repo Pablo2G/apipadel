@@ -11,7 +11,9 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 //Routes
-app.use('/api/padel', require('./routers/users.routes'));
+app.use('/api/padel/users', require('./routers/users.routes'));
+app.use('/api/padel/reservation', require('./routers/reservation.routes'));
+app.use('/api/padel/court', require('./routers/court.routes'));
 
 //Starting the server
 app.listen(app.get('port'), ()=>{
