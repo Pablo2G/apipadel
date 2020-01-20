@@ -8,7 +8,7 @@ const usersSchema = new Schema({
     email: {type: String, required: true},
     user: {type: String, required: true},
     pass: {type: String, required: true},
-    admin: {type: Boolean, required: true},
+    admin: {type: Boolean, required: true}
 });
 
 module.exports = mongoose.model('Users', usersSchema);

@@ -24,9 +24,8 @@ courtCtrl.getUser =  async (req, res) =>{
 courtCtrl.editUsers = async (req, res) =>{
     const { id } = req.params;
     const court = {
-        user: req.body.user,
-        court: req.body.court,
-        date: req.body.date,
+        name: req.body.name,
+        state: req.body.state,
     }
     await Court.findByIdAndUpdate(id, {$set:court}, {new:true});
     res.json({
