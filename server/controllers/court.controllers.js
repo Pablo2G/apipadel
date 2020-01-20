@@ -9,10 +9,11 @@ courtCtrl.getUsers = async (req, res) =>{
 };
 
 courtCtrl.createUsers = async (req, res) =>{
-    const court = new eacher(req.body);
+    console.log(req.body);
+    const court = new Court(req.body);
     await court.save();
     res.json({
-        status: 'Users save'
+        status: 'Court save'
     });
 }
 

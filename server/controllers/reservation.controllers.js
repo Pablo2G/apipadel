@@ -9,7 +9,7 @@ reservationCtrl.getUsers = async (req, res) =>{
 };
 
 reservationCtrl.createUsers = async (req, res) =>{
-    const reservation = new eacher(req.body);
+    const reservation = new Reservation(req.body);
     await reservation.save();
     res.json({
         status: 'Users save'
