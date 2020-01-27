@@ -9,7 +9,15 @@ usersCtrl.getUsers = async (req, res) =>{
 };
 
 usersCtrl.createUsers = async (req, res) =>{
-    const users = new Users(req.body);
+    const users = new Users({
+        name: req.body.name,
+        street: req.body.street,
+        phone: req.body.phone,
+        email: req.body.email,
+        user: req.body.user,
+        pass: req.body.pass,
+        admin: req.body.admin,
+    });
     await users.save();
     res.json({
         status: 'Users save'
