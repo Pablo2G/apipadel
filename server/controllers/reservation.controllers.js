@@ -2,26 +2,30 @@ const Reservation = require('../models/reservation')
 
 const reservationCtrl = {};
 
-reservationCtrl.getUsers = async (req, res) =>{
+reservationCtrl.getReservations = async (req, res) =>{
     //Ultima forma de trabajar con las peticiones de busqueda
     const reservation = await Reservation.find();
     res.json(reservation);
 };
 
-reservationCtrl.createUsers = async (req, res) =>{
-    const reservation = new Reservation(req.body);
+reservationCtrl.createReservations = async (req, res) =>{
+    const reservation = new Reservation({
+        user: req.body.user,
+        court: req.body.court,
+        date: req.body.date,
+    });
     await reservation.save();
     res.json({
         status: 'Users save'
     });
 }
 
-reservationCtrl.getUser =  async (req, res) =>{
+reservationCtrl.getReservation =  async (req, res) =>{
     const reservation = await Reservation.findById(req.params.id);
     res.json(reservation);
 };
 
-reservationCtrl.editUsers = async (req, res) =>{
+reservationCtrl.editReservations = async (req, res) =>{
     const { id } = req.params;
     const reservation = {
         user: req.body.user,
@@ -34,7 +38,7 @@ reservationCtrl.editUsers = async (req, res) =>{
     });
 }
 
-reservationCtrl.deleteUsers = async (req, res) =>{
+reservationCtrl.deleteReservations = async (req, res) =>{
     await Reservation.findOneAndDelete(req.params.id)
     res.json({
         status: 'Users Delete'

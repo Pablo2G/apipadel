@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const courtCtrl = require('../controllers/court.controllers');
 
-router.get('/', courtCtrl.getUsers);
-router.post('/', courtCtrl.createUsers);
-router.get('/:id', courtCtrl.getUser);
-router.put('/:id', courtCtrl.editUsers);
-router.delete('/:id', courtCtrl.deleteUsers);
+router.get('/', courtCtrl.getCourts);
+router.post('/', courtCtrl.createCourts);
+router.get('/:id', courtCtrl.getCourt);
+router.put('/:id', courtCtrl.editCourts);
+router.delete('/:id', courtCtrl.deleteCourts);
 
 module.exports = router;
